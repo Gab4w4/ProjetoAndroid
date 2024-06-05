@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "679472231203",
+    "project_id": "comercioonline-7e5c1",
+    "storage_bucket": "comercioonline-7e5c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679472231203:android:85c6eb6c9c2a29abc05296",
+        "android_client_info": {
+          "package_name": "com.example.meu_comercio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeMLaBDX9c-5GWK--UxJB26YnNNMAlqVA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
