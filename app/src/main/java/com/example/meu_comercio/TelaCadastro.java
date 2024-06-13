@@ -17,6 +17,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.meu_comercio.Util.ConfiguracaoBD;
+import com.example.meu_comercio.Util.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -109,6 +110,8 @@ public class TelaCadastro extends AppCompatActivity {
                                 cadastrarUsuario();
                                 // Chama o método para cadastrar o usuário
 
+                                limparCampos();
+
                             }else{
                                 Toast.makeText(this, "As senhas estão divergentes!", Toast.LENGTH_SHORT).show();
                             }
@@ -138,6 +141,14 @@ public class TelaCadastro extends AppCompatActivity {
             Toast.makeText(this, "Preencha o nome!", Toast.LENGTH_SHORT).show();
             // Exibe mensagem se o campo nome estiver vazio
         }
+    }
+
+    private void limparCampos() {
+        campoNome.setText("");
+        campoTelefone.setText("");
+        campoCadastroEmail.setText("");
+        campoCadastroSenha.setText("");
+        campoCadastroCsenha.setText("");
     }
 
     // Método para cadastrar o usuário utilizando Firebase Authentication

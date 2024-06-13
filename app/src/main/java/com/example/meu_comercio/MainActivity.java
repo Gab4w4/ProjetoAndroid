@@ -1,6 +1,5 @@
 package com.example.meu_comercio;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
@@ -17,7 +16,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.meu_comercio.Comercio.Principal;
 import com.example.meu_comercio.Util.ConfiguracaoBD;
+import com.example.meu_comercio.Util.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -87,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
 
                 logar(usuario);
                 // Chama o método para logar o usuário
+
+                limparCampos();
             }else{
                 Toast.makeText(this, "Digite a sua senha!", Toast.LENGTH_SHORT).show();
                 // Exibe mensagem se o campo senha estiver vazio
@@ -95,6 +98,11 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Digite o seu email!", Toast.LENGTH_SHORT).show();
             // Exibe mensagem se o campo email estiver vazio
         }
+    }
+
+    private void limparCampos() {
+        campoEmail.setText("");
+        campoSenha.setText("");
     }
 
     // Método para logar o usuário utilizando Firebase Authentication

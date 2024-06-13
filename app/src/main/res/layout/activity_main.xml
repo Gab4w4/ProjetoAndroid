@@ -18,10 +18,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.33" />
+        app:layout_constraintVertical_bias="0.319" />
 
     <TextView
         android:id="@+id/textView"
@@ -92,11 +92,9 @@
         android:background="@drawable/backgroud_button"
         android:onClick="validarAutenticacao"
         android:text="Login"
-        android:textColorLink="#492E2E"
         android:textSize="16sp"
         android:textStyle="bold"
         app:backgroundTint="#FFFFFF"
-        app:iconTint="#670808"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.949"

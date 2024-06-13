@@ -1,4 +1,4 @@
-package com.example.meu_comercio;
+package com.example.meu_comercio.Util;
 
 public class Usuario {
     private String Nome;

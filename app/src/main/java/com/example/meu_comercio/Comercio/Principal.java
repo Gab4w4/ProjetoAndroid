@@ -1,5 +1,6 @@
-package com.example.meu_comercio;
+package com.example.meu_comercio.Comercio;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -9,6 +10,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+
+import com.example.meu_comercio.R;
 import com.example.meu_comercio.Util.ConfiguracaoBD;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -33,16 +36,24 @@ public class Principal extends AppCompatActivity {
         auth = ConfiguracaoBD.Firebaseautenticacao();
         // Obtém a instância do FirebaseAuth
 
+
+
     }
 
     // Método para deslogar o usuário
-    public void deslogar(View view){
-        try{
+    public void deslogar(View view) {
+        try {
             auth.signOut(); // Encerra a sessão do usuário autenticado
             finish(); // Fecha a atividade atual
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace(); // Imprime o rastreamento completo da pilha de execução da exceção
         }
+    }
+
+
+    public void ListadeProdutos(View view){
+        Intent in = new Intent(Principal.this, ListaProdutos.class);
+        startActivity(in);
     }
 
 }
