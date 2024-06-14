@@ -60,6 +60,7 @@ public class EsqueceuSenha extends AppCompatActivity {
 
     }
 
+    // Método que recebe email digitado pelo usuário para enviar-lhe um link de redefinição de senha
     private void enviarEmail(String email){
         autenticar.sendPasswordResetEmail(email).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override

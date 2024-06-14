@@ -7,9 +7,12 @@ public class Usuario {
     private String Senha;
     private String Confirmarsenha;
 
+    //Construtor da classe usuário
     public Usuario(){
     }
 
+
+    //Métodos getters e setters de cada atributo da classe usuário
     public String getNome() {
         return Nome;
     }

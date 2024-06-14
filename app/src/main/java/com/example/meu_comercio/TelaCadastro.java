@@ -39,6 +39,7 @@ public class TelaCadastro extends AppCompatActivity {
     // Botão de cadastrar
 
     CheckBox mostrarSenha;
+    // CheckBox de mostrar senha
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,7 @@ public class TelaCadastro extends AppCompatActivity {
         inicializar();
         // Inicializa os componentes da interface
 
+        //Método responsável por revelar caracteres ocultos
         mostrarSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

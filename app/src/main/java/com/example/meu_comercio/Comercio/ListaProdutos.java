@@ -1,135 +1,90 @@
 package com.example.meu_comercio.Comercio;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.inputmethod.EditorInfo;
-import android.widget.SearchView;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.meu_comercio.Modelo.Produtos;
 import com.example.meu_comercio.R;
 import com.example.meu_comercio.adapter.ProdutosAdapter;
-import com.example.meu_comercio.databinding.ActivityListaProdutosBinding;
 
 import java.util.ArrayList;
 
 public class ListaProdutos extends AppCompatActivity {
 
-    private ActivityListaProdutosBinding binding;
-    private final ArrayList<Produtos> produtosArrayList = new ArrayList<>();
+    private ArrayList<Produtos> produtosArrayList;
     private ProdutosAdapter produtosAdapter;
+
+    EditText action_search;
+    ImageButton searchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityListaProdutosBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        setContentView(R.layout.activity_lista_produtos);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        // Inicializa a lista de produtos
+        produtosArrayList = new ArrayList<>();
 
-        RecyclerView recyclerViewProduto = binding.RecycleViewProdutos;
+        // Popula a lista de produtos (exemplo)
+        populateProdutos();
+
+        // Configura o RecyclerView
+        RecyclerView recyclerViewProduto = findViewById(R.id.RecycleViewProdutos);
         recyclerViewProduto.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewProduto.setHasFixedSize(true);
+
+        // Inicializa o adaptador com a lista completa de produtos
         produtosAdapter = new ProdutosAdapter(produtosArrayList, this);
         recyclerViewProduto.setAdapter(produtosAdapter);
-        getProduto();
+
+        // Configuração da pesquisa
+        action_search = findViewById(R.id.action_search);
+        searchButton = findViewById(R.id.SearchButton);
+        searchButton.setOnClickListener(v -> performSearch());
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.search_filter, menu);
+    private void populateProdutos() {
+        // Adiciona produtos de exemplo à lista
+        produtosArrayList.add(new Produtos(R.drawable.tenis, 2, "Tênis", 20, 159.99));
+        produtosArrayList.add(new Produtos(R.drawable.vestido, 3, "Vestido", 7, 179.99));
+        produtosArrayList.add(new Produtos(R.drawable.jeans, 4, "Calça Jeans Feminina", 12, 299.99));
+        produtosArrayList.add(new Produtos(R.drawable.bermuda, 5, "Bermuda", 16, 69.99));
+        produtosArrayList.add(new Produtos(R.drawable.camiseta, 6, "Camiseta", 23, 39.99));
+        produtosArrayList.add(new Produtos(R.drawable.roupadefrio, 7, "Moletom", 30, 229.99));
 
-        MenuItem searchFilter = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) searchFilter.getActionView();
-        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
-                produtosAdapter.getFilter().filter(s);
-                return false;
-            }
-        });
-
-        return super.onCreateOptionsMenu(menu);
+        // Adicione mais produtos conforme necessário
     }
 
-    private void getProduto() {
-        Produtos produto2 = new Produtos(
-                R.drawable.tenis,
-                2,
-                "Tênis",
-                20,
-                159.99
-        );
-        produtosArrayList.add(produto2);
+    private void performSearch() {
+        String query = action_search.getText().toString().toLowerCase().trim();
 
-        Produtos produto3 = new Produtos(
-                R.drawable.vestido,
-                3,
-                "Vestido",
-                7,
-                179.99
-        );
-        produtosArrayList.add(produto3);
+        if (query.isEmpty()) {
+            // Se o campo de pesquisa estiver vazio, exibe uma mensagem
+            Toast.makeText(this, "Digite um termo para pesquisar", Toast.LENGTH_SHORT).show();
+        } else {
+            // Filtra a lista de produtos com base no termo de pesquisa
+            ArrayList<Produtos> filteredList = new ArrayList<>();
 
-        Produtos produto4 = new Produtos(
-                R.drawable.jeans,
-                4,
-                "Calça Jeans Feminina",
-                12,
-                299.99
-        );
-        produtosArrayList.add(produto4);
+            for (Produtos produto : produtosArrayList) {
+                if (produto.getNome().toLowerCase().contains(query)) {
+                    filteredList.add(produto);
+                }
+            }
 
-        Produtos produto5 = new Produtos(
-                R.drawable.bermuda,
-                5,
-                "Bermuda",
-                16,
-                69.99
-        );
-        produtosArrayList.add(produto5);
+            // Atualiza o adaptador com a lista filtrada
+            produtosAdapter.filterList(filteredList);
 
-        Produtos produto6 = new Produtos(
-                R.drawable.camiseta,
-                6,
-                "Camiseta",
-                23,
-                39.99
-        );
-        produtosArrayList.add(produto6);
-
-        Produtos produto7 = new Produtos(
-                R.drawable.roupadefrio,
-                7,
-                "Moletom",
-                30,
-                229.99
-        );
-        produtosArrayList.add(produto7);
-
-
-        produtosAdapter.notifyDataSetChanged(); // Notifica o adaptador que os dados mudaram
+            // Se não houver resultados, você pode exibir uma mensagem ou lidar de outra forma
+            if (filteredList.isEmpty()) {
+                Toast.makeText(this, "Nenhum resultado encontrado para '" + query + "'", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

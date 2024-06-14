@@ -1,13 +1,6 @@
 package com.example.meu_comercio.Modelo;
 
 public class Produtos {
-    public int getImg() {
-        return img;
-    }
-
-    public void setImg(int img) {
-        this.img = img;
-    }
 
     int img;
     private long id;
@@ -15,6 +8,8 @@ public class Produtos {
     private int quantidadeEmestoque;
     private Double preco;
 
+
+    //Construtor da classe Produtos
     public Produtos(int img, long id, String nome, int quantidadeEmestoque, Double preco) {
         this.img = img;
         this.id = id;
@@ -23,6 +18,7 @@ public class Produtos {
         this.preco = preco;
     }
 
+    //Métodos getters e setters da classe Produtos
     public long getId() {
         return id;
     }
@@ -52,4 +48,13 @@ public class Produtos {
     public void setPreco(double preco) {
         this.preco = preco;
     }
+
+    public int getImg() {
+        return img;
+    }
+
+    public void setImg(int img) {
+        this.img = img;
+    }
+
 }

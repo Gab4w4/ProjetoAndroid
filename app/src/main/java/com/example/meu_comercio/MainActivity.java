@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     // Botão de acesso
 
     CheckBox mostrarSenha;
-    // Check box para mostrar senha
+    // Check box de mostrar senha
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
         inicializarComponentes();
         // Inicializa os componentes da interface
 
+
+        //Método responsável por revelar caracteres ocultos
         mostrarSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Método para limpeza de campos de digitação
     private void limparCampos() {
         campoEmail.setText("");
         campoSenha.setText("");

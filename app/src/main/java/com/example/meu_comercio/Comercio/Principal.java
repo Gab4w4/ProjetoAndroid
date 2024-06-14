@@ -50,7 +50,7 @@ public class Principal extends AppCompatActivity {
         }
     }
 
-
+    //Método para abrir a tela da lista de produtos
     public void ListadeProdutos(View view){
         Intent in = new Intent(Principal.this, ListaProdutos.class);
         startActivity(in);
