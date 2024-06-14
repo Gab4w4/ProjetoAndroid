@@ -11,8 +11,8 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="67dp"
         android:background="@drawable/backgroud_button"
         android:backgroundTint="#FFFFFF"
         android:onClick="deslogar"
@@ -21,15 +21,15 @@
         app:iconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.885"
+        app:layout_constraintHorizontal_bias="0.947"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.937" />
+        app:layout_constraintVertical_bias="0.976" />
 
     <Button
         android:id="@+id/buttonListadeProdutos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="204dp"
+        android:layout_height="77dp"
         android:background="@drawable/backgroud_button"
         android:backgroundTint="#FFFFFF"
         android:onClick="ListadeProdutos"
@@ -38,9 +38,21 @@
         app:iconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.861"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.735" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="373dp"
+        android:layout_height="481dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/comercio" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

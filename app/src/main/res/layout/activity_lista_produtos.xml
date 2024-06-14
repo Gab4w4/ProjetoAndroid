@@ -19,17 +19,44 @@
             android:layout_width="0dp"
             android:layout_height="75dp"
             android:layout_weight="1"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/background_txt"
             android:hint="Search"
             android:padding="8dp"/>
 
         <ImageButton
             android:id="@+id/SearchButton"
-            android:layout_width="70dp"
+            android:layout_width="60dp"
             android:layout_height="65dp"
             android:background="@drawable/backgroud"
             app:srcCompat="@drawable/baseline_search_24" />
+
     </LinearLayout>
 
+    <Button
+        android:id="@+id/buttonparatelapagamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="COMPRAR"
+        android:onClick="telaPagamento"
+        android:background="@drawable/backgroud_button"
+        app:backgroundTint="#FFFFFF"
+        />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="voltarTelaPrincipal"
+        android:textStyle="bold"
+        android:text="RECARREGAR"
+        android:background="@drawable/backgroud_button"
+        app:backgroundTint="#FFFFFF"/>
+
+    
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecycleViewProdutos"
         android:layout_width="match_parent"

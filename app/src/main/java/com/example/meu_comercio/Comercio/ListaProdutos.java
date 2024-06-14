@@ -1,6 +1,10 @@
 package com.example.meu_comercio.Comercio;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -23,6 +27,7 @@ public class ListaProdutos extends AppCompatActivity {
     EditText action_search;
     ImageButton searchButton;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +52,7 @@ public class ListaProdutos extends AppCompatActivity {
         action_search = findViewById(R.id.action_search);
         searchButton = findViewById(R.id.SearchButton);
         searchButton.setOnClickListener(v -> performSearch());
+
 
     }
 
@@ -86,5 +92,15 @@ public class ListaProdutos extends AppCompatActivity {
                 Toast.makeText(this, "Nenhum resultado encontrado para '" + query + "'", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    public void telaPagamento(View view){
+        Intent in = new Intent(ListaProdutos.this, TelaPagamento.class);
+        startActivity(in);
+    }
+
+    public void voltarTelaPrincipal(View view) {
+        Intent in = new Intent(ListaProdutos.this, ListaProdutos.class);
+        startActivity(in);
     }
 }
